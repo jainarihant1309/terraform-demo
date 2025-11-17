@@ -1,11 +1,10 @@
-
 terraform {
-  required_version = ">= 1.0"
-
   backend "s3" {
-    bucket = "your-tf-state-bucket"
-    key    = "dev/terraform.tfstate"
-    region = "ap-south-1"
+    bucket         = "terraform-state-arihant"
+    key            = "dev/terraform.tfstate"
+    region         = "ap-south-1"
+    dynamodb_table = "lock-table"
+    encrypt        = true
   }
 }
 
